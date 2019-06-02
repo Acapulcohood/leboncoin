@@ -42,12 +42,17 @@ class Article
     private $seller;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="text")
+     */
+    private $image;
+
+    /**
+     * @ORM\Column(type="text")
      */
     private $createdAt;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="datetime")
      */
     private $localisation;
 
@@ -112,6 +117,17 @@ class Article
     public function setSeller(string $seller): self
     {
         $this->seller = $seller;
+
+        return $this;
+    }
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
