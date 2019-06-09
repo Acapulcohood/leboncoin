@@ -2,10 +2,21 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}BeerTime{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        <nav>
+            <ul>
+                <li> <a href="{{path('accueil')}}">Accueil</a> </li>
+                <li> <a href="{{path('article_list')}}">Liste</a> </li>
+            </ul>
+        </nav>
+
+        <form method="GET" action="{{path('article_list')}}">
+            <input type="text" name="querySearch" placeholder="recherche...">
+            <button type="submit">Rechercher</button>
+        </form>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
