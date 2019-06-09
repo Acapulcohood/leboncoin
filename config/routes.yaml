@@ -4,5 +4,13 @@ main:
     
 add:
     path: /
-    controller:  App\Controller\ArticleController::article
+    controller:  App\Controller\ArticleController::add
+    
+list:
+    path: /
+    controller:  App\Controller\ArticleController::list
+
+connexion:
+    path: /
+    controller:  App\Controller\UserController::login
 

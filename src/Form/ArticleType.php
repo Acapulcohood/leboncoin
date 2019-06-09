@@ -1,12 +1,11 @@
 <?php
+
 namespace App\Form;
+
 use App\Entity\Article;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\UrlType;
-use Symfony\Component\Form\Extension\Core\Type\MoneyType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 class ArticleType extends AbstractType
 {
@@ -14,14 +13,33 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('name', null, array(
-                'label' => false,
-                'attr' => array(
-                    'placeholder' => 'Nom de l\'article',
-                ),
+                'label'=>'Nom de l\'article'
             ))
-          
+            ->add('description', null, array(
+            'label'=> 'Description du produit'
+            ))
+            ->add('category', null, array(
+                'label'=> 'Nom de la catégorie'
+                ))
+            ->add('price', null, array(
+                'label'=> 'Prix'
+                ))
+            ->add('seller', null, array(
+                'label'=> 'Vendeur'
+                ))
+            ->add('image', null, array(
+                'label'=> 'Image'
+                ))
+            ->add('createdAt', null, array(
+                'date_widget'=>'single_text',
+                'label'=> 'Date d\'ajout'
+                ))
+            ->add('localisation', null, array(
+                'label'=>'localisation'
+            ))
         ;
     }
+
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

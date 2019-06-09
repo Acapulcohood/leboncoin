@@ -55,7 +55,9 @@ class Article
      * @ORM\Column(type="datetime")
      */
     private $localisation;
-
+    /**
+     * @ORM\Column(type="text")
+     */
     public function getId(): ?int
     {
         return $this->id;
