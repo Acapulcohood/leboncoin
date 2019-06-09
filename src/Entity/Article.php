@@ -47,17 +47,15 @@ class Article
     private $image;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime")
-     */
-    private $localisation;
-    /**
      * @ORM\Column(type="text")
      */
+    private $localisation;
+    
     public function getId(): ?int
     {
         return $this->id;
