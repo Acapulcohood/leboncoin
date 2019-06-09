@@ -8,10 +8,16 @@ use App\Service\ArticleService;
 use App\Entity\Article;
 use App\Entity\User;
 use App\Form\ArticleType;
+
 class ArticleController extends AbstractController
 {
+    private $articleService;
+    public function __construct(ArticleService $articleService){
+        $this->articleService = $articleService;
+    }
+
     /**
-     * @Route("/articles", name="article_list")
+     * @Route("/article", name="article_list")
      */
     public function list( Request $request, ArticleService $articleService ){
         $query = $request->query->get( 'query' );
@@ -31,7 +37,7 @@ class ArticleController extends AbstractController
      */
     public function add( Request $request ){
         $article = new article();
-        $form = $this->createForm( ArticleType::class, $article );
+        $form = $this->createForm( Article::class, $article );
         $form->handleRequest( $request );
         if( $form->isSubmitted() && $form->isValid() ){
             $article->setOwner( $this->getUser() );
