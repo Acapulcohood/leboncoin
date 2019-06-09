@@ -1,6 +1,4 @@
 main:
     path: /
-    controller: App\Controller\MainController::index
-showArticle:
-    path: /
-    controller: App\Controller\ArticleController::articleShow
+    controller:  App\Controller\MainController::home
+
