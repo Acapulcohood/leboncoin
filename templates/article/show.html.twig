@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.name }} - {{ parent() }}{% endblock %}
+
+{% block body %}
+<h1>
+    <span>{{ article.name }}</span>
+</h1>
+
+<div class="container ">
+    <div class="row">
+        <div class="col-12 col-md-8 py-4">
+            {{ article.description }}
+        </div>
+        <div class="col-12 col-md-4 bg-dark text-light py-4">
+            <div>
+                <strong>Date d'ajout : </strong>
+                {{article.createdAt|date('d/m/Y H:i') }}
+            </div>
+
+            <div>
+                <strong>Prix : </strong>
+                {{ article.price }}
+            </div>
+
+            <div>
+                <strong>Vendeur : </strong>
+
+                {{ article.seller }}
+            </div>
+
+            <div>
+                <strong>Localisation : </strong>
+
+                {{ article.localisation }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
